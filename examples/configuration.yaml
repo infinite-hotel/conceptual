@@ -3,4 +3,4 @@ kind: Configuration
 metadata:
   name: conceptual
 spec:
-  package: xpkg.upbound.io/infinite-hotel/conceptual:v0.0.0-1742732113
+  package: xpkg.upbound.io/infinite-hotel/conceptual:v0.1.0
