@@ -1,5 +1,9 @@
 # The Infinite Hotel: Scaling Multi-Tenant Platforms through a Unified API.
 
+<p align="center">
+  <img src="infinite-hotel.png" alt="Infinite Hotel Blueprint" />
+</p>
+
 As platform teams evolve, platforms extend beyond infrastructure to application
 services, cloud resource management, and middleware orchestration. Managing
 these distributed components across clusters and teams demands a unified,
