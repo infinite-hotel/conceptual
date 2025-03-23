@@ -38,4 +38,9 @@ jobs:
 
       - name: Push
         if: env.UP_API_TOKEN != ''
-        run: up project push -t ${{ inputs.version || '' }}
+        run: |
+          if [[ -n "${{ inputs.version }}" ]]; then
+            up project push -t "${{ inputs.version }}"
+          else
+            up project push
+          fi
