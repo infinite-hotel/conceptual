@@ -1,0 +1,7 @@
+apiVersion: scalebeyond.rejekts.io/v1alpha1
+kind: XLobby
+metadata:
+  name: zero
+spec:
+  parameters:
+    wing: westus

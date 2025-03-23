@@ -1,0 +1,37 @@
+apiVersion: meta.dev.upbound.io/v1alpha1
+kind: Project
+metadata:
+  name: conceptual
+spec:
+  dependsOn:
+  - configuration: xpkg.upbound.io/upbound/configuration-azure-network
+    version: '>=v0.0.0'
+  - function: xpkg.upbound.io/crossplane-contrib/function-auto-ready
+    version: '>=v0.0.0'
+  - configuration: xpkg.upbound.io/upbound/configuration-azure-aks
+    version: '>=v0.0.0'
+  - configuration: xpkg.upbound.io/upbound/configuration-gitops-argocd
+    version: '>=v0.0.0'
+  - provider: xpkg.upbound.io/crossplane-contrib/provider-keycloak
+    version: v2.0.0
+  description: |
+    The Infinite Hotel: Scaling Multi-Tenant Platforms through a Unified API.
+  license: Apache-2.0
+  maintainer: github.com/infinite-hotel
+  readme: |
+    As platform teams evolve, platforms extend beyond infrastructure to
+    application services, cloud resource management, and middleware
+    orchestration. Managing these distributed components across clusters and
+    teams demands a unified, scalable approach. This session shows how to manage
+    infrastructure, tenants, and application services entirely through
+    Kubernetes by building a modular, multi-tenant, multi-control-plane
+    platform. Attendees will learn to extend the Kubernetes API with Control
+    Planes for distributed, tenant-aware infrastructure management. We will
+    explore CNCF projects to create abstractions and automation, enabling
+    platform teams to offer consistent services and self-service capabilities.
+    Topics include multi-tenancy with in- and out-of-cluster isolation, unified
+    APIs for control-plane orchestration, and avoiding common pitfalls in
+    multi-control-plane management. By the end, attendees will have a roadmap
+    for scalable platforms supporting centralized and tenant-managed services.
+  repository: xpkg.upbound.io/infinite-hotel/conceptual
+  source: https://github.com/infinite-hotel/conceptual

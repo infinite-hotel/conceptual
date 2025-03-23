@@ -1,0 +1,48 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xfloors.scalebeyond.rejekts.io
+spec:
+  claimNames:
+    kind: Floor
+    plural: floors
+  group: scalebeyond.rejekts.io
+  names:
+    categories:
+    - crossplane
+    kind: XFloor
+    plural: xfloors
+  versions:
+  - name: v1alpha1
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        description: Floor is the Schema for the Floor API.
+        properties:
+          spec:
+            description: FloorSpec defines the desired state of Floor.
+            properties:
+              parameters:
+                properties:
+                  lobby:
+                    type: string
+                  occupancyPermit:
+                    type: string
+                  quermeters:
+                    properties:
+                      count:
+                        type: number
+                      roomClass:
+                        type: string
+                    type: object
+                  wing:
+                    type: string
+                type: object
+            type: object
+          status:
+            description: FloorStatus defines the observed state of Floor.
+            type: object
+        required:
+        - spec
+        type: object
+    served: true

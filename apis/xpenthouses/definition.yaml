@@ -1,0 +1,37 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xpenthouses.scalebeyond.rejekts.io
+spec:
+  claimNames:
+    kind: Penthouse
+    plural: penthouses
+  group: scalebeyond.rejekts.io
+  names:
+    categories:
+    - crossplane
+    kind: XPenthouse
+    plural: xpenthouses
+  versions:
+  - name: v1alpha1
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        description: Penthouse is the Schema for the Penthouse API.
+        properties:
+          spec:
+            description: PenthouseSpec defines the desired state of Penthouse.
+            properties:
+              parameters:
+                properties:
+                  manager:
+                    type: string
+                type: object
+            type: object
+          status:
+            description: PenthouseStatus defines the observed state of Penthouse.
+            type: object
+        required:
+        - spec
+        type: object
+    served: true

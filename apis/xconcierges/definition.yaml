@@ -1,0 +1,39 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xconcierges.scalebeyond.rejekts.io
+spec:
+  claimNames:
+    kind: Concierge
+    plural: concierges
+  group: scalebeyond.rejekts.io
+  names:
+    categories:
+    - crossplane
+    kind: XConcierge
+    plural: xconcierges
+  versions:
+  - name: v1alpha1
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        description: Concierge is the Schema for the Concierge API.
+        properties:
+          spec:
+            description: ConciergeSpec defines the desired state of Concierge.
+            properties:
+              parameters:
+                properties:
+                  lobby:
+                    type: string
+                  name:
+                    type: string
+                type: object
+            type: object
+          status:
+            description: ConciergeStatus defines the observed state of Concierge.
+            type: object
+        required:
+        - spec
+        type: object
+    served: true

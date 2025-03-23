@@ -1,0 +1,29 @@
+apiVersion: azure.upbound.io/v1beta1
+kind: ProviderConfig
+metadata:
+  name: default
+spec:
+  credentials:
+    source: Upbound
+  clientID: b0bb07a8-191f-42e1-a3ba-a03ea0cbf346
+  tenantID: b9925bc4-8383-4c37-b9d2-fa456d1bb1c7
+  subscriptionID: 038f2b7c-3265-43b8-8624-c9ad5da610a8
+---
+apiVersion: kubernetes.crossplane.io/v1alpha1
+kind: ProviderConfig
+metadata:
+  name: default
+spec:
+  credentials:
+    secretRef:
+      key: kubeconfig
+      name: cluster-config
+      namespace: crossplane-system
+    source: Secret
+  identity:
+    secretRef:
+      key: token
+      name: upbound-credentials
+      namespace: crossplane-system
+    source: Secret
+    type: UpboundTokens

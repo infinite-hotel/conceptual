@@ -1,0 +1,6 @@
+apiVersion: scalebeyond.rejekts.io/v1alpha1
+kind: Penthouse
+metadata:
+  name: penthouse001-zenith
+  namespace: default
+spec: {}

@@ -1,0 +1,39 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xgateguards.scalebeyond.rejekts.io
+spec:
+  claimNames:
+    kind: GateGuard
+    plural: gateguards
+  group: scalebeyond.rejekts.io
+  names:
+    categories:
+    - crossplane
+    kind: XGateGuard
+    plural: xgateguards
+  versions:
+  - name: v1alpha1
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        description: GateGuard is the Schema for the GateGuard API.
+        properties:
+          spec:
+            description: GateGuardSpec defines the desired state of GateGuard.
+            properties:
+              parameters:
+                properties:
+                  lobby:
+                    type: string
+                  name:
+                    type: string
+                type: object
+            type: object
+          status:
+            description: GateGuardStatus defines the observed state of GateGuard.
+            type: object
+        required:
+        - spec
+        type: object
+    served: true

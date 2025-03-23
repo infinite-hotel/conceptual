@@ -1,0 +1,40 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xrooms.scalebeyond.rejekts.io
+spec:
+  claimNames:
+    kind: Room
+    plural: rooms
+  group: scalebeyond.rejekts.io
+  names:
+    categories:
+    - crossplane
+    kind: XRoom
+    plural: xrooms
+  versions:
+  - name: v1alpha1
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        description: Room is the Schema for the Room API.
+        properties:
+          spec:
+            description: RoomSpec defines the desired state of Room.
+            properties:
+              parameters:
+                properties:
+                  floor:
+                    type: string
+                  coordinates:
+                    type: string
+                    default: infinite-hotel.de
+                type: object
+            type: object
+          status:
+            description: RoomStatus defines the observed state of Room.
+            type: object
+        required:
+        - spec
+        type: object
+    served: true

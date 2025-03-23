@@ -1,0 +1,13 @@
+apiVersion: scalebeyond.rejekts.io/v1alpha1
+kind: Floor
+metadata:
+  name: first
+  namespace: default
+spec:
+  parameters:
+    lobby: zero
+    wing: westus
+    occupancyPermit: "1.31"
+    quermeters:
+      count: 3
+      roomClass: BasicSuite

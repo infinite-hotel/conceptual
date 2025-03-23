@@ -1,0 +1,8 @@
+apiVersion: scalebeyond.rejekts.io/v1alpha1
+kind: Room
+metadata:
+  name: room001-infinity
+  namespace: default
+spec:
+  parameters:
+    floor: zero # change-me

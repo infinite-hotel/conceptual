@@ -1,0 +1,9 @@
+apiVersion: scalebeyond.rejekts.io/v1alpha1
+kind: XGateGuard
+metadata:
+  name: gateguard
+  # namespace: default
+spec:
+  parameters:
+    lobby: zero
+    name: gateguard.infinite-hotel.de
