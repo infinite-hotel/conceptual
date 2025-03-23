@@ -32,9 +32,10 @@ jobs:
         if: env.UP_API_TOKEN != ''
         run: up login -t ${{ secrets.UP_API_TOKEN }} --organization ${{ secrets.UP_ORG }}
 
-      - name: Build and Push Upbound project
+      - name: Build
         if: env.UP_API_TOKEN != ''
-        uses: upbound/action-up-project@v1
-        with:
-          push-project: true
-          tag: ${{ inputs.version || '' }}
+        run: up project build
+
+      - name: Push
+        if: env.UP_API_TOKEN != ''
+        run: up project push -t ${{ inputs.version || '' }}
