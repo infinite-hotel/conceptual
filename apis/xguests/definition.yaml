@@ -1,0 +1,63 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xguests.scalebeyond.rejekts.io
+spec:
+  claimNames:
+    kind: Guest
+    plural: guests
+  group: scalebeyond.rejekts.io
+  names:
+    categories:
+    - crossplane
+    kind: XGuest
+    plural: xguests
+  versions:
+  - name: v1alpha1
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        description: Guest is the Schema for the Guest API.
+        properties:
+          spec:
+            description: GuestSpec defines the desired state of Guest.
+            properties:
+              parameters:
+                properties:
+                  email:
+                    type: string
+                  firstName:
+                    type: string
+                  group:
+                    type: string
+                  initialPassword:
+                    items:
+                      properties:
+                        temporary:
+                          type: boolean
+                        valueSecretRef:
+                          properties:
+                            key:
+                              type: string
+                            name:
+                              type: string
+                            namespace:
+                              type: string
+                          type: object
+                      type: object
+                    type: array
+                  lastName:
+                    type: string
+                  lobby:
+                    type: string
+                  username:
+                    type: string
+                type: object
+            type: object
+          status:
+            description: GuestStatus defines the observed state of Guest.
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
