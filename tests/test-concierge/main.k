@@ -83,7 +83,10 @@ _items = [
             ]
             compositionPath: "apis/xconcierges/composition.yaml"
             xr: scalebeyondv1alpha1.XConcierge{
-                metadata.name = "concierge"
+                metadata: {
+                    name = "concierge"
+                    uid = "98738947398479283748923789327"
+                }
                 spec: {
                     parameters: {
                         lobby: "zero"

@@ -27,7 +27,7 @@ _items = [
                     clientID: argocd
                     clientSecret: {}
                     requestedScopes: ['openid', 'profile', 'email', 'groups']
-                """.format(oxr.spec.parameters.gateguard, option("params").ocds[oxr.metadata.name]?.Resource?.metadata.uid)
+                """.format(oxr.spec.parameters.gateguard, oxr.metadata.uid)
                 source: {
                     git: {
                         url: "https://github.com/infinite-hotel/concierge.git"
@@ -107,7 +107,7 @@ _items = [
                     }
                     type: "Opaque"
                     stringData: {
-                        clientSecret: option("params").ocds[oxr.metadata.name]?.Resource?.metadata.uid
+                        clientSecret: oxr.metadata.uid
                     }
                 }
             }
