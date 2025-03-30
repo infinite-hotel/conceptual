@@ -67,6 +67,53 @@ _items = [
   }
 
   kubernetesv1alpha2.Object{
+    metadata: _metadata(oxr.metadata.name+"-roomservice")
+    spec: {
+      providerConfigRef: {
+        name: oxr.spec.parameters.lobby
+      }
+      forProvider: {
+        manifest: {
+          apiVersion: "argoproj.io/v1alpha1"
+          kind: "Application"
+          metadata: {
+            name: "food-server"
+            namespace: "argocd"
+          }
+          spec: {
+            project: "default"
+            source: {
+              repoURL: "https://github.com/infinite-hotel/room-service.git"
+              targetRevision: "HEAD"
+              path: "config"
+            }
+            destination: {
+              server: "https://kubernetes.default.svc"
+              namespace: "room-service"
+            }
+            syncPolicy: {
+              automated: {
+                prune: True
+                selfHeal: True
+                allowEmpty: False
+              }
+              syncOptions: [
+                "CreateNamespace=true"
+              ]
+              managedNamespaceMetadata: {
+                labels: {
+                  "pod-security.kubernetes.io/enforce" = "baseline"
+                  }
+                }
+              }
+            revisionHistoryLimit: 10
+          }
+        }
+      }
+    }
+  }
+
+  kubernetesv1alpha2.Object{
     metadata: _metadata(oxr.metadata.name+"-clusterissuer")
     spec: {
       providerConfigRef: {
