@@ -37,6 +37,16 @@ _items = [
                                 }
                                 }
                             }
+                            networking: {
+                                replicateServices: {
+                                    fromHost: [
+                                        {
+                                            from: "room-service/food-server", 
+                                            to: "room-service/food-server"
+                                        }
+                                    ]
+                                }
+                            }
                             controlPlane: {
                                 ingress: {
                                 enabled: True

@@ -26,6 +26,56 @@ _items = [
                         }
                     }
                 }
+
+                kubernetesv1alpha2.Object{
+                    metadata: {
+                        name: "first-roomservice"
+                    }
+                    spec: {
+                        providerConfigRef: {
+                            name: "zero"
+                        }
+                        forProvider: {
+                            manifest: {
+                                apiVersion: "argoproj.io/v1alpha1"
+                                kind: "Application"
+                                metadata: {
+                                    name: "food-server"
+                                    namespace: "argocd"
+                                }
+                                spec: {
+                                    project: "default"
+                                    source: {
+                                        repoURL: "https://github.com/infinite-hotel/room-service.git"
+                                        targetRevision: "HEAD"
+                                        path: "config"
+                                    }
+
+                                    destination: {
+                                        server: "https://kubernetes.default.svc"
+                                        namespace: "room-service"
+                                    }
+                                    syncPolicy: {
+                                        automated: {
+                                            prune: True
+                                            selfHeal: True
+                                            allowEmpty: False
+                                        }
+                                        syncOptions: [
+                                            "CreateNamespace=true"
+                                        ]
+                                        managedNamespaceMetadata: {
+                                            labels: {
+                                                "pod-security.kubernetes.io/enforce" = "baseline"
+                                            }
+                                        }
+                                    }
+                                    revisionHistoryLimit: 10
+                                }
+                            }
+                        }
+                    }
+                }
                 helmv1beta1.Release{
                     metadata: {
                         name: "first-cert-manager"
