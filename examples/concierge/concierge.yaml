@@ -7,3 +7,4 @@ spec:
   parameters:
     lobby: zero
     name: concierge.infinite-hotel.de
+    gateguard: gateguard.infinite-hotel.de

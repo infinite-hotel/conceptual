@@ -1,0 +1,28 @@
+apiVersion: scalebeyond.rejekts.io/v1alpha1
+kind: Guest
+metadata:
+  name: davidhilbert
+  namespace: default
+spec:
+  parameters:
+    lobby: zero
+    username: david.hilbert
+    firstName: David
+    lastName: Hilbert
+    email: david.hilbert@infinite-hotel.de
+    group: argocd-admin
+    initialPassword:
+      - valueSecretRef:
+          key: password
+          name: davidhilbert
+          namespace: default
+        temporary: true
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: davidhilbert
+  namespace: default
+type: Opaque
+stringData:
+  password: my-secret-password

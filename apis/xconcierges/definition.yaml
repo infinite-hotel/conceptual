@@ -28,6 +28,8 @@ spec:
                     type: string
                   name:
                     type: string
+                  gateguard:
+                    type: string
                 type: object
             type: object
           status:
