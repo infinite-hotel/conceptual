@@ -1,0 +1,40 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xtenants.scalebeyond.rejekts.io
+spec:
+  claimNames:
+    kind: Tenant
+    plural: tenants
+  group: scalebeyond.rejekts.io
+  names:
+    categories:
+    - crossplane
+    kind: XTenant
+    plural: xtenants
+  versions:
+  - name: v1alpha1
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        description: Tenant is the Schema for the Tenant API.
+        properties:
+          spec:
+            description: TenantSpec defines the desired state of Tenant.
+            properties:
+              # parameters:
+              #   properties:
+              #     floor:
+              #       type: string
+              #     coordinates:
+              #       type: string
+              #       default: infinite-hotel.de
+              #   type: object
+            type: object
+          status:
+            description: TenantStatus defines the observed state of Tenant.
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
