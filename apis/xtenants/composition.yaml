@@ -1,0 +1,16 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xtenants.scalebeyond.rejekts.io
+spec:
+  compositeTypeRef:
+    apiVersion: scalebeyond.rejekts.io/v1alpha1
+    kind: XTenant
+  mode: Pipeline
+  pipeline:
+  - functionRef:
+      name: infinite-hotel-conceptualxtenants
+    step: xtenants
+  - functionRef:
+      name: crossplane-contrib-function-auto-ready
+    step: crossplane-contrib-function-auto-ready

@@ -1,8 +1,7 @@
 apiVersion: scalebeyond.rejekts.io/v1alpha1
-kind: Tenant
+kind: XTenant
 metadata:
   name: family-1
-  namespace: default
 spec: {}
   # parameters:
   #   floor: zero # change-me
