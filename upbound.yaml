@@ -4,12 +4,10 @@ metadata:
   name: conceptual
 spec:
   dependsOn:
-  - configuration: xpkg.upbound.io/upbound/configuration-azure-network
-    version: '>=v0.0.0'
   - function: xpkg.upbound.io/crossplane-contrib/function-auto-ready
     version: '>=v0.0.0'
   - configuration: xpkg.upbound.io/upbound/configuration-azure-aks
-    version: '>=v0.0.0'
+    version: 'v0.13.0'
   - configuration: xpkg.upbound.io/upbound/configuration-gitops-argocd
     version: '>=v0.0.0'
   - provider: xpkg.upbound.io/crossplane-contrib/provider-keycloak
